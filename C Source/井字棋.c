@@ -3,7 +3,7 @@
 int main()
 {
 	//规则是无论行列亦或是对较小要达到size才算赢
-	 // size = 3;//恒量
+	//const int size = 3;//恒量,在C++有效
 	int tab[size][size];//桌面3X3
 	int i, j;
 	int numof0;//0的个数
@@ -17,9 +17,15 @@ int main()
 			scanf("%d", &tab[i][j]);
 		}
 	}
+	int q = 0;
 	for (i = 0; i < size; i++) {
 		for (j = 0; j < size; j++) {
 			printf("%d ", tab[i][j]);
+			q++;
+			if (q > 2) {
+				q = 0;
+				printf("\n");
+			}
 		}
 	}
 	//固定i检查j
@@ -36,11 +42,11 @@ int main()
 			{
 				numof0++;
 			}
-			if (numof0==size)
+			if (numof0 == size)
 			{
 				result = 0;
 			}
-			else if (numofx==size)
+			else if (numofx == size)
 			{
 				result = 1;
 			}
@@ -60,7 +66,7 @@ int main()
 				if (numofx == size) {
 					result = 1;
 				}
-				else if(numof0==size){
+				else if (numof0 == size) {
 					result = 0;
 				}
 			}
@@ -79,7 +85,7 @@ int main()
 			if (numof0 == size) {
 				result = 0;
 			}
-			else if(numofx == size) {
+			else if (numofx == size) {
 				result = 1;
 			}
 		}
@@ -89,14 +95,14 @@ int main()
 		for (i = 0; i < size&&result == -1; i++) {
 			if (tab[i][size - i - 1] == 0) {
 				numof0++;
-			} 
-			else if(tab[i][size - i - 1] == 1) {
+			}
+			else if (tab[i][size - i - 1] == 1) {
 				numofx++;
 			}
 			if (numof0 == size) {
 				result = 0;
 			}
-			else if(numofx == size) {
+			else if (numofx == size) {
 				result = 1;
 			}
 		}
@@ -111,4 +117,4 @@ int main()
 		printf("没有胜利者");
 	}
 	return 0;
- }
+}
