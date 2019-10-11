@@ -22,6 +22,15 @@ int main()
 	int const *n = &i;
 	//*n = 25;int const *n相当于const int *n，都是锁死了地址里的内容；
 	*n++;
+
 	return 0;
+	/*eg.void （const int*q）
+			int a=15;
+			f(&a);
+			const int b=a;
+			void保证在函数内部不会修改q地址里放的值，并非必须传入一个const值，像&a，并不是一个const值
+			但传入函数后，const 数据不会被修改
+			f(&b);这是可以的，b是一个const
+			b=a+1;		这是不可以的，因为b是一个const值*/
 
 }
