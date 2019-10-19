@@ -13,6 +13,7 @@ int main(void)
 
 */
 	free(0);//free(NULL);因为我们有之前的那个初始化的好习惯，所以就算动态失败了
-					//	或者没有操作，仍可以释放掉p
+					//	或者没有操作，仍可以释放掉p  free（p）=free（NULL）=free（0）
+					//free过了再去free会让程序崩溃
 	return 0;
 }
