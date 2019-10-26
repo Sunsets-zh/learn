@@ -329,3 +329,7 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /C Source/指针的作用.c
+/C Source/检查代码.exe
+/C Source/strcmp.c
+/C Source/MAIN（有东西）.c
+/C Source/strlen.c
