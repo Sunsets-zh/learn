@@ -40,6 +40,7 @@ char*mycat(char*s1, const char*s2)
 	b[mystrlen(s1) + i] = '\0';
 	return b;
 }
+//对于cmp cat cpy都有安全版本就是 ncmp ncat ncpy
 int main()
 {
 //	char *strcat(char *restrict s1, const char *restrict s2);//把s2复制到s1的后边然后返回s1；
