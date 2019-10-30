@@ -1,6 +1,7 @@
 clear;
 clc;
 % 1，读入数据
+%双曲贴现
 load('D:\ex4x.dat');
 load('D:\ex4y.dat');
 x = ex4x;
