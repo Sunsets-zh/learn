@@ -17,6 +17,8 @@ int main()
 	output(y);
 	output(*getStruct(&y));//要再重新运行一遍getStruct所以要重新输入
 	print(getStruct(&y));
+	*getstruct(&y) = (struct point){ 1,2 };//在这儿必须给来一个强制类型转换
+	output(y);
 }
 struct point* getStruct(struct point *p)//传入结构体地址，返回指针
 {
