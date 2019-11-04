@@ -14,9 +14,9 @@ int main()
 	struct point y = { 0,0 };
 	output(y);
 	getStruct(&y);//传的值是指针值（地址）
-	//output(y);
-	output(*getStruct(&y));//这个没有输出？为什么
-	print(getStruct(&y));//这个也没有输出，为什么？
+	output(y);
+	output(*getStruct(&y));//要再重新运行一遍getStruct所以要重新输入
+	print(getStruct(&y));
 }
 struct point* getStruct(struct point *p)//传入结构体地址，返回指针
 {
