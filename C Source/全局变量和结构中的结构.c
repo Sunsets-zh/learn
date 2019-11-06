@@ -1,6 +1,6 @@
 struct Weather {
-	char *AorP;
-	char *Weather;
+	char *AorP;//因为下边输出的%s且是字符串，字符串的存在方式是字符指针或者数组
+	char *Weather;//如果要用char c；后边必须输出%c
 };
 struct Date {
 	int year;
