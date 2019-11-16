@@ -19,9 +19,14 @@ int main()
 			add(&list, number);//这时候传入&list就相当于&head
 		}
 	} while (number != -1);
+	//如果要遍历这个list
+	//输出链表
+	print(&list);
+
+	printf("\n");
 	return 0;
 }
-void add(List* plist,int number)//这时候直接传进来的就是list的地址，也就是head的地址
+void add(List* plist, int number)//这时候直接传进来的就是list的地址，也就是head的地址
 {
 	//加入到link-list里    所以要制造一个link-list，也就是链接起来的Node结构体
 	Node *p = (Node*)malloc(sizeof(Node));//动态分配的
@@ -42,6 +47,13 @@ void add(List* plist,int number)//这时候直接传进来的就是list的地址，也就是head的
 		plist = p;//如果一开始last就是NULL，它指向的那个head就是NULL，那么head=p；
 		//这样存在一个问题，即操作后的head和主函数没什么关系，这就很尴尬，所以给地址套上地址
 		//这样直接修改地址里的东西，head就被修改了，可以直接返回
-		
+
+	}
+}
+void print(List* list)
+{
+	Node *p;
+	for (p = list.head; p; p = p->next) {
+		printf("%d\t", p->value);
 	}
 }
