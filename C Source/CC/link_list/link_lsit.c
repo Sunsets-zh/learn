@@ -1,6 +1,9 @@
 #include"node.h"
 #include<stdio.h>
 #include<stdlib.h>
+void print(List* list;
+void add(List* plist, int number);
+void search(List* list, int number);
 typedef struct _list {
 	Node *head;//因为这个list里只有这一个，所以&head=&list，用list来代表整个链表
 	//这样做的好处在于，以后添加东西方便，因为找到last进行一个遍历操作，如果每次都从head开始
@@ -22,7 +25,9 @@ int main()
 	//如果要遍历这个list
 	//输出链表
 	print(&list);
-
+	search(&list,scanf("%d", &number));
+	
+	}
 	printf("\n");
 	return 0;
 }
@@ -56,4 +61,15 @@ void print(List* list)
 	for (p = list.head; p; p = p->next) {
 		printf("%d\t", p->value);
 	}
+}
+void search(List* list, int number)
+{
+	Node *p;
+	for (p = list.head; p; p = p->next) {
+		if (number == p->value) {
+			printf("%d\t", p->value);
+		}
+		else {
+			printf("meizhaodao");
+		}
 }
