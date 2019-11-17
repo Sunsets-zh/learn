@@ -1,9 +1,11 @@
 #include"node.h"
 #include<stdio.h>
 #include<stdlib.h>
-void print(List* list;
+void print(List* list);
 void add(List* plist, int number);
 void search(List* list, int number);
+void delete(List* plist, int number);
+void delete_list(List*list);
 typedef struct _list {
 	Node *head;//ÒòÎªÕâ¸ölistÀïÖ»ÓÐÕâÒ»¸ö£¬ËùÒÔ&head=&list£¬ÓÃlistÀ´´ú±íÕû¸öÁ´±í
 	//ÕâÑù×öµÄºÃ´¦ÔÚÓÚ£¬ÒÔºóÌí¼Ó¶«Î÷·½±ã£¬ÒòÎªÕÒµ½last½øÐÐÒ»¸ö±éÀú²Ù×÷£¬Èç¹ûÃ¿´Î¶¼´Óhead¿ªÊ¼
@@ -26,11 +28,10 @@ int main()
 	//Êä³öÁ´±í
 	print(&list);
 	search(&list,scanf("%d", &number));
-	
-	}
 	printf("\n");
 	return 0;
 }
+//¸øÁ´±í¼ÓÖµ
 void add(List* plist, int number)//ÕâÊ±ºòÖ±½Ó´«½øÀ´µÄ¾ÍÊÇlistµÄµØÖ·£¬Ò²¾ÍÊÇheadµÄµØÖ·
 {
 	//¼ÓÈëµ½link-listÀï    ËùÒÔÒªÖÆÔìÒ»¸ölink-list£¬Ò²¾ÍÊÇÁ´½ÓÆðÀ´µÄNode½á¹¹Ìå
@@ -55,21 +56,56 @@ void add(List* plist, int number)//ÕâÊ±ºòÖ±½Ó´«½øÀ´µÄ¾ÍÊÇlistµÄµØÖ·£¬Ò²¾ÍÊÇheadµ
 
 	}
 }
-void print(List* list)
+//Êä³öÁ´±íµÄÒ»¸öÖµ
+void print(List* plist)
 {
 	Node *p;
-	for (p = list.head; p; p = p->next) {
+	for (p = plist->head; p; p = p->next) {
 		printf("%d\t", p->value);
 	}
 }
-void search(List* list, int number)
+//ËÑË÷Á´±íµÄÒ»¸öÖµ
+void search(List* plist, int number)
 {
 	Node *p;
-	for (p = list.head; p; p = p->next) {
+	for (p = plist->head; p; p = p->next) {
 		if (number == p->value) {
 			printf("%d\t", p->value);
 		}
 		else {
 			printf("meizhaodao");
 		}
+	}
+}
+//É¾³ýÁ´±íµÄÒ»¸öÖµ
+void delete(List* plist, int number)
+{
+	Node *p;
+	Node *q;
+	for (q = NULL, p = plist->head; p; q = p, p = p->next) {//Èç¹ûpÖ¸ÏòheadÊ±¾ÍÊÇÎÒÃÇÒªÉ¾³ýµÄ¶«Î÷£¬ÄÇÃ´q´ËÊ±Ö¸ÏòNULL£¬ÄÇÃ´´ËÊ±
+		//¾Í²»ÊÇqnextÖ¸Ïòpnext£¬¶øÊÇheadÖ¸Ïònext£»
+		if (number == p->value) {
+			if (q) {
+				q->next = p->next;
+			}
+			else {
+				plist.head = p->next;
+			}
+			free(p);
+			break;
+		}//±£Ö¤Ö¸ÕëÊ¹ÓÃÊ±²»»áÖ¸ÏòNULL
+		else {
+			printf("meizhaodao");
+		}
+	}
+}
+//Á´±íµÄÇå³ý
+void delete_list(List*list) 
+{
+	Node*p;
+	Node*q;
+	for (p = list->head; p; p = q) {
+		q = p->next;
+		free(p);
+	}
 }
